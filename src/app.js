@@ -2,6 +2,8 @@ let showSpinner = false
 let currentCategory = "01"
 
 const cardsElement = document.querySelector(".cards");
+const categoryElement = document.querySelector(".category-list")
+const modalElement = document.querySelector(".modal-dialog")
 
 
 const getCatagory = async () => {
@@ -24,16 +26,31 @@ const getNewsDetails = async (news_id)=> {
     const res = await fetch(`https://openapi.programming-hero.com/api/news/${news_id}`)
     const result = await res.json()
     console.log(result)
+    return result
 }
 
 
-const renderCards = async ()=> {
-  const cards = await getNewsById(currentCategory)
+const renderCategory = async()=> {
+  const categories = await getCatagory()
+  categories.map(category=> {
+    categoryElement.innerHTML += `
+    <li class="list-inline-item">
+      <a href="#" class="text-decoration-none text-primary" onClick="renderCards('${category.category_id}')">${category.category_name}</a>
+    </li>
+    `
+  })
+}
+
+renderCategory()
+
+const renderCards = async (categoryID = currentCategory)=> {
+  const cards = await getNewsById(categoryID)
+  cardsElement.innerHTML = ""
   cards.map(card=> {
     cardsElement.innerHTML = cardsElement.innerHTML +
-    `<div class="card mb-3">
+    `<div class="card mb-3 p-3">
     <div class="row g-0">
-      <div class="col-md-4">
+      <div class="col-auto">
         <img
           src="${card.thumbnail_url}"
           class="img-fluid rounded-start"
@@ -43,13 +60,10 @@ const renderCards = async ()=> {
       <div class="col-md-8">
         <div class="card-body">
           <h5 class="card-title">
-            The best fashion influencers to follow for sartorial
-            inspiration
+            ${card.title}
           </h5>
-          <p class="card-text">
-            This is a wider card with supporting text below as a natural
-            lead-in to additional content. This content is a little bit
-            longer.
+          <p class="card-text ellipsis">
+            ${card.details}
           </p>
           <div
             class="d-flex justify-content-between align-items-center"
@@ -69,7 +83,7 @@ const renderCards = async ()=> {
             </div>
             <div class="d-inline">
               <img src="./assets/carbon_view.png" alt="eye icon" />
-              <p class="d-inline">1.5</p>
+              <p class="d-inline">${card.total_view}</p>
             </div>
             <div>
               <img src="./assets/bxs_star-half.png" alt="" />
@@ -79,8 +93,8 @@ const renderCards = async ()=> {
               <img src="./assets/Vector.png" alt="" />
             </div>
             <div>
-              <a href="#">
-                <img src="./assets/Group.png" alt="" />
+              <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                <img src="./assets/Group.png" alt="" onClick="renderModal('${card._id}')"/>
               </a>
             </div>
           </div>
@@ -89,6 +103,50 @@ const renderCards = async ()=> {
     </div>
   </div>`
   })
+}
+
+const renderModal = async (newsId)=> {
+  const {data} = await getNewsDetails(newsId)
+  const news = data[0]
+  modalElement.innerHTML = ''
+  modalElement.innerHTML = `
+  <div class="modal-content">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">
+      ${news.title}
+    </h5>
+    <button
+      type="button"
+      class="btn-close"
+      data-bs-dismiss="modal"
+      aria-label="Close"
+    ></button>
+  </div>
+  <img
+    src="${news.image_url}"
+    alt=""
+  />
+  <div class="modal-body">
+  ${news.details}
+  </div>
+  <div class="modal-footer justify-content-between">
+    <h6>Author: ${news.author.name}</h6>
+    <button type="button" class="btn btn-primary">
+      Rating <span class="badge text-bg-secondary">${news.rating.number}</span>
+    </button>
+    <p>Published: <span>${new Date(news.author.published_date).toDateString()}</span></p>
+  </div>
+</div>
+
+  `
+}
+
+const renderLoadingSpinner = ()=> {
+  return `
+  <div class="spinner-border" role="status">
+  <span class="visually-hidden">Loading...</span>
+  </div>
+  `
 }
 
 renderCards()

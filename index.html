@@ -10,6 +10,7 @@
       integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./src/style.css" />
     <title>Breaking Today</title>
   </head>
   <body>
@@ -55,31 +56,7 @@
             </div>
           </div>
         </nav>
-        <ul class="list-inline d-flex justify-content-between">
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#" class="text-decoration-none text-primary">Home</a>
-          </li>
+        <ul class="list-inline d-flex justify-content-between category-list">
           <li class="list-inline-item">
             <a href="#" class="text-decoration-none text-primary">Home</a>
           </li>
@@ -90,6 +67,9 @@
       <div class="container-lg">
         <!-- CARD SECTION START -->
         <div class="cards">
+          <div class="spinner-border" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
           <div class="card mb-3 p-3">
             <div class="row g-0">
               <div class="col-auto">
@@ -105,10 +85,25 @@
                     The best fashion influencers to follow for sartorial
                     inspiration
                   </h5>
-                  <p class="card-text">
+                  <p class="card-text ellipsis">
                     This is a wider card with supporting text below as a natural
                     lead-in to additional content. This content is a little bit
-                    longer.
+                    longer. This is a wider card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.This is a wider card with supporting text
+                    below as a natural lead-in to additional content. This
+                    content is a little bit longer.This is a wider card with
+                    supporting text below as a natural lead-in to additional
+                    content. This content is a little bit longer. This is a
+                    wider card with supporting text below as a natural lead-in
+                    to additional content. This content is a little bit longer.
+                    This is a wider card with supporting text below as a natural
+                    lead-in to additional content. This content is a little bit
+                    longer.This is a wider card with supporting text below as a
+                    natural lead-in to additional content. This content is a
+                    little bit longer.This is a wider card with supporting text
+                    below as a natural lead-in to additional content. This
+                    content is a little bit longer.
                   </p>
                   <div
                     class="d-flex justify-content-between align-items-center"
@@ -149,6 +144,52 @@
           </div>
         </div>
         <!-- CARD SECTION END -->
+      </div>
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">
+                Biden Pledges Nearly $3 Billion To Ukraine In Largest U.S.
+                Military Aid Package Yet
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <img
+              src="https://i.ibb.co/BZZ5WKv/unsplash-Eh-Tc-C9s-YXsw-4.png"
+              alt=""
+            />
+            <div class="modal-body">
+              Fox News's top-rated host, Tucker Carlson, claimed on Monday night
+              that Russian President Vladimir Putin is in fact winning the war
+              in Ukraine, and President Joe Biden's insistence that Putin
+              surrenders his campaign to take over Ukraine is actually evidence
+              Biden's ultimate goal is to 'destroy the West.' Carlson arrived at
+              his bizarre claim after railing against European and American
+              military aid to Ukraine. 'Italy's Ukraine funding is a lot, but
+              it's not quite as much as France. France has sent more than $2
+              billion U.
+            </div>
+            <div class="modal-footer justify-content-between">
+              <h6>Author: Jane Cooper</h6>
+              <button type="button" class="btn btn-primary">
+                Rating <span class="badge text-bg-secondary">4.5</span>
+              </button>
+              <p>Published: <span>12th July 2020</span></p>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer></footer>
