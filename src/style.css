@@ -5,3 +5,7 @@
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;
 }
+
+.loading-spinner-active {
+    display: none !important;
+}
