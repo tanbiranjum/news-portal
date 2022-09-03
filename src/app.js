@@ -87,15 +87,15 @@ const renderCards = async (category_id, category_name) => {
       <div class="col-md-6">
       <div class="card p-3">
     <div class="row g-0">
-      <div class="col-md-5">
+      <div class="col-12 col-sm-4 col-md-5">
         <img
           src="${card.thumbnail_url}"
-          class="img-fluid rounded-start"
+          class="img-fluid mx-auto rounded-start"
           alt=""
         />
       </div>
-      <div class="col-md-7 align-self-center">
-        <div class="card-body pt-0">
+      <div class="col-12 col-sm-8 col-md-7 align-self-center">
+        <div class="card-body pt-0 mt-1 mt-sm-0">
         <div>
               <img src="./assets/bxs_star-half.png" alt=""/>
               <img src="./assets/Vector.png" alt=""/>
