@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>Breaking Today</title>
+  </head>
+  <body>
+    <header>
+      <div class="container-lg">
+        <nav class="navbar navbar-expand-lg bg-light py-3">
+          <div class="container-fluid">
+            <a class="navbar-brand text-primary" href="#"
+              ><span class="bg-primary text-white p-2 rounded-1">Breaking</span>
+              Today</a
+            >
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent"
+              aria-controls="navbarSupportedContent"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active list-inline-active" href="blog.html"
+                    >Blog</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a href="#">
+                    <img
+                      src="./assets/Avatar.png"
+                      alt="avatar"
+                      class="img-fluid"
+                    />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <hr class="bg-danger border-2 border-top border-danger" />
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="accordion" id="accordionExample">
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingOne">
+              <button
+                class="accordion-button"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseOne"
+                aria-expanded="true"
+                aria-controls="collapseOne"
+              >
+                What is the difference between var, let & const?
+              </button>
+            </h2>
+            <div
+              id="collapseOne"
+              class="accordion-collapse collapse show"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                The scope of a var variable is functional scope. The scope of a
+                let variable is block scope. It can be updated and re-declared
+                into the scope. The scope of a const variable is block scope.
+                Var can be declared without initialization but let and const
+                cannot be declared without initialization. Var is global scoped
+                and locally scoped for function.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingTwo">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseTwo"
+                aria-expanded="false"
+                aria-controls="collapseTwo"
+              >
+                Difference between arrow function and regular function?
+              </button>
+            </h2>
+            <div
+              id="collapseTwo"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingTwo"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                The this in normal function is dynamic that means this depends
+                on how the function is invoked. On the other hand arrow function
+                doesnot have its own execuation context. And also by
+                syntectically they looks different.
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingThree">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseThree"
+                aria-expanded="false"
+                aria-controls="collapseThree"
+              >
+                Difference between map, forEach, filter, find?
+              </button>
+            </h2>
+            <div
+              id="collapseThree"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingThree"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong
+                  >map is used for change the array element and its completely
+                  return new array. forEach used to iterate array element but it
+                  doesn't change the array. filter used to check certain
+                  criteria and based on this criteria it returns new array. The
+                  find() method returns the value of the first element that
+                  passes a test.</strong
+                >
+              </div>
+            </div>
+          </div>
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="headingFour">
+              <button
+                class="accordion-button collapsed"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#collapseFour"
+                aria-expanded="false"
+                aria-controls="collapseFour"
+              >
+                Why we use template string? ``
+              </button>
+            </h2>
+            <div
+              id="collapseFour"
+              class="accordion-collapse collapse"
+              aria-labelledby="headingFour"
+              data-bs-parent="#accordionExample"
+            >
+              <div class="accordion-body">
+                <strong
+                  >We use template string to use multiline string. String
+                  interpolation is one of the most powerful feature of template
+                  string. We can use javascript expression in string. It can
+                  also used in nested templates. That's the reason we use
+                  template string.</strong
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="card p-3 mt-5">
+        <h6 class="text-center">Copyright 2021 Breaking News</h6>
+      </div>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
