@@ -4,25 +4,34 @@ const cardsElement = document.querySelector(".cards");
 const categoryElement = document.querySelector(".category-list");
 const modalElement = document.querySelector(".modal-dialog");
 const spinnerElement = document.querySelector(".spinner");
+const contentInfoElement = document.querySelector(".content-info")
 
 const getCatagory = async () => {
-  const res = await fetch(
-    "https://openapi.programming-hero.com/api/news/categories"
-  );
-  const { data } = await res.json();
-  return data.news_category;
+  try {
+    const res = await fetch(
+      "https://openapi.programming-hero.com/api/news/categories"
+    );
+    const { data } = await res.json();
+    return data.news_category;
+  } catch (error) {
+    return false
+  }
 };
 
 getCatagory();
 
 const getNewsById = async (category_id) => {
-  showLoadingSpinner();
-  const res = await fetch(
-    `https://openapi.programming-hero.com/api/news/category/${category_id}`
-  );
-  const { data } = await res.json();
-  hideLoadingSpinner();
-  return data;
+  try {
+    showLoadingSpinner();
+    const res = await fetch(
+      `https://openapi.programming-hero.com/api/news/category/${category_id}`
+    );
+    const { data } = await res.json();
+    hideLoadingSpinner();
+    return data; 
+  } catch (error) {
+    return false
+  }
 };
 
 const getNewsDetails = async (news_id) => {
@@ -39,7 +48,7 @@ const renderCategory = async () => {
   categories.map((category) => {
     categoryElement.innerHTML += `
     <li class="list-inline-item">
-      <a href="#" class="text-decoration-none text-primary" onClick="renderCards('${category.category_id}')">${category.category_name}</a>
+      <a href="#" class="text-decoration-none text-primary" onClick="renderCards('${category.category_id}', '${category.category_name}')">${category.category_name}</a>
     </li>
     `;
   });
@@ -47,9 +56,11 @@ const renderCategory = async () => {
 
 renderCategory();
 
-const renderCards = async (categoryID = currentCategory) => {
+const renderCards = async (category_id, category_name) => {
+  const categoryID = category_id || currentCategory 
   const cards = await getNewsById(categoryID);
   if(!cards.length) return cardsElement.innerHTML = "Sorry! There are no News in this section"
+  contentInfoElement.innerHTML = `<h6>${cards.length} items found for category ${category_name}</h6>`
   cardsElement.innerHTML = "";
   cards.map((card) => {
     cardsElement.innerHTML =
