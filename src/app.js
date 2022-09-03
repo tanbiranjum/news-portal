@@ -63,16 +63,19 @@ const renderCards = async (category_id, category_name) => {
   Array.from(lists).forEach((list) =>
     list.classList.remove("list-inline-active")
   );
-  console.log(lists);
   Array.from(lists).forEach((list) => {
     if (list.dataset.index === category_id) {
       list.classList.add("list-inline-active");
     }
   });
   if (!cards) return "Something went wrong!";
-  if (!cards.length)
+  if (!cards.length) {
+    contentInfoElement.innerHTML = `<h6>${
+      0
+    } items found for category ${category_name || "Breaking News"}</h6>`;
     return (cardsElement.innerHTML =
       "Sorry! There are no News in this section");
+  }
   contentInfoElement.innerHTML = `<h6>${
     cards.length
   } items found for category ${category_name || "Breaking News"}</h6>`;
