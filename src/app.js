@@ -49,6 +49,7 @@ renderCategory();
 
 const renderCards = async (categoryID = currentCategory) => {
   const cards = await getNewsById(categoryID);
+  if(!cards.length) return cardsElement.innerHTML = "Sorry! There are no News in this section"
   cardsElement.innerHTML = "";
   cards.map((card) => {
     cardsElement.innerHTML =
