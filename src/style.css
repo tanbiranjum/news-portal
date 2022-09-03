@@ -9,3 +9,7 @@
 .loading-spinner-active {
     display: none !important;
 }
+
+.list-inline-active {
+    border-bottom: 1px solid black;
+}
