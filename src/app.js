@@ -38,7 +38,6 @@ const getNewsDetails = async (news_id) => {
     `https://openapi.programming-hero.com/api/news/${news_id}`
   ).catch(() => false);
   const result = await res.json();
-  console.log(result);
   return result;
 };
 
@@ -70,9 +69,9 @@ const renderCards = async (category_id, category_name) => {
   });
   if (!cards) return "Something went wrong!";
   if (!cards.length) {
-    contentInfoElement.innerHTML = `<h6>${
-      0
-    } items found for category ${category_name || "Breaking News"}</h6>`;
+    contentInfoElement.innerHTML = `<h6>${0} items found for category ${
+      category_name || "Breaking News"
+    }</h6>`;
     return (cardsElement.innerHTML =
       "Sorry! There are no News in this section");
   }
@@ -171,16 +170,29 @@ const renderModal = async (newsId) => {
   ${news.details || "No data found"}
   </div>
   <div class="modal-footer justify-content-between">
+  <img
+      src="${news.author.img}"
+      alt=""
+      class="rounded-circle me-1"
+      height="40"
+      width="40"
+    />
     <h6>Author: ${news.author.name || "No data found"}</h6>
     <button type="button" class="btn btn-primary">
       Rating <span class="badge text-bg-secondary">${
         news.rating.number || "No data found"
       }</span>
     </button>
-    <p>Published: <span>${
-      new Date(news.author.published_date).toDateString() || "No data found"
-    }</span></p>
+    <button type="button" class="btn btn-info">
+      Badge <span class="badge text-bg-secondary">${
+        news.rating.badge || "No data found"
+      }</span>
+    </button>
   </div>
+  <p class="ps-3">Published: <span>${
+    new Date(news.author.published_date).toDateString() || "No data found"
+  }</span></p>
+  <p class="ps-3">Total View: ${news.total_view || "No data found"}</p>
 </div>
 
   `;
